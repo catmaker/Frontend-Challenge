@@ -29,10 +29,11 @@
 
 ## 결과
 
-##Desktop
+**Desktop**
 ![preview2](https://github.com/catmaker/Frontend-Challenge/assets/114233139/6793ca61-3a8b-421f-b01a-add45456ccdd)
-
-##Mobile
+</br>
+**Mobile**
+</br>
 ![preview2mobile](https://github.com/catmaker/Frontend-Challenge/assets/114233139/1fb71ba0-4ffd-47c8-9662-0fc877b871b3)
 
 

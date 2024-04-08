@@ -7,7 +7,7 @@
 ## 챌린지 목록
 
 1. **FAQ**: HTML, CSS 및 순수 자바스크립트로 구축된 간단한 FAQ (자주 묻는 질문) 아코디언 컴포넌트.
-   - [링크](https://github.com/catmaker/Frontend-Challenge/tree/main/faq-accordion-main)
+   - [FAQ](https://github.com/catmaker/Frontend-Challenge/tree/main/faq-accordion-main)
   
 
 ## 사용된 기술

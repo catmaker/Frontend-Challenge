@@ -13,8 +13,8 @@
 - 모바일 및 데스크톱 화면에 대한 반응형 디자인
 
 ## 미리보기
+![desktop-preview](https://github.com/catmaker/Frontend-Challenge/assets/114233139/b3b4bb8f-1071-464e-8e98-7dd4a476d3a0)
 
-![FAQ 아코디언 미리보기](./assets/images/preview.png)
 
 ## 사용 방법
 
@@ -28,8 +28,13 @@
 - JavaScript
 
 ## 결과
+
+##Desktop
 ![preview2](https://github.com/catmaker/Frontend-Challenge/assets/114233139/6793ca61-3a8b-421f-b01a-add45456ccdd)
-![preview2mobile](https://github.com/catmaker/Frontend-Challenge/assets/114233139/826f37b3-5842-46c1-a738-64d772eb6b73)
+
+##Mobile
+![preview2mobile](https://github.com/catmaker/Frontend-Challenge/assets/114233139/1fb71ba0-4ffd-47c8-9662-0fc877b871b3)
+
 
 
 

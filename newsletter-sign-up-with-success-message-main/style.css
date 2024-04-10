@@ -1,0 +1,77 @@
+@font-face {
+  font-family: "Roboto-B";
+  src: url("/assets/fonts/Roboto-Bold.ttf");
+}
+@font-face {
+  font-family: "Roboto-R";
+  src: url("/assets/fonts/Roboto-Regular.ttf");
+}
+body {
+  font-family: "Roboto-R";
+  font-weight: 700;
+  color: hsla(231, 5%, 26%, 0.911);
+}
+.background {
+  background-image: url("/assets/images/illustration-sign-up-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100% auto;
+  height: 33vh; /* 이 줄을 추가 */
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.title {
+  font-size: 2.4rem;
+  font-family: "Roboto-B";
+  margin-top: 32px;
+  color: hsl(234, 29%, 20%);
+}
+.contentBox {
+  width: 90%;
+  margin: auto;
+}
+p.intro {
+  margin-top: 24px;
+  line-height: 1.5;
+}
+div.topicBox {
+  margin-top: 24px;
+}
+div.topic {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 16px;
+}
+.topic > img {
+  width: 20px;
+}
+form.subscription-form {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+label.userEmail-label {
+  font-weight: 700;
+  color: black;
+  font-size: 0.8rem;
+}
+#userEmail {
+  margin-top: 10px;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid hsl(231, 7%, 60%);
+}
+#userEmail:focus {
+  border-color: hsl(4, 100%, 57%);
+}
+button.userEmail-button {
+  padding: 18px;
+  margin-top: 24px;
+  border-radius: 10px;
+  border: none;
+  background-color: hsl(234, 29%, 20%);
+  color: white;
+  font-family: "Roboto-B";
+  font-size: 1rem;
+}

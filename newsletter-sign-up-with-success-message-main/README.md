@@ -34,3 +34,4 @@
 **Mobile**
 </br>
 ![mobile-preview](https://github.com/catmaker/Frontend-Challenge/assets/114233139/49e33f57-4780-49f2-b9cb-2ed1145df0ae)
+![mobile-subscribe-error](https://github.com/catmaker/Frontend-Challenge/assets/114233139/1e3c64c6-ea0c-4b1e-8c3b-a0aaffcfa3a9)

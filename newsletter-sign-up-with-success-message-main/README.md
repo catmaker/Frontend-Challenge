@@ -30,9 +30,7 @@
 
 **Desktop**
 
-</br>
 **Mobile**
-</br>
 
 ![mobile-subscribe](https://github.com/catmaker/Frontend-Challenge/assets/114233139/171af75d-41a6-40be-baf8-75ecdb92519f)</br>
 

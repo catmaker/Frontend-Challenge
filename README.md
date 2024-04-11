@@ -10,6 +10,8 @@
    - [FAQ](https://github.com/catmaker/Frontend-Challenge/tree/main/faq-accordion-main)
 2. **Subscribe-form**: 간단한 뉴스레터 구독 양식(form) 컴포넌트입니다.
    - [Subscribe-form](https://github.com/catmaker/Frontend-Challenge/tree/main/newsletter-sign-up-with-success-message-main)
+3. **Multi-step-form**: 사용자가 여러 단계를 거쳐 정보를 입력하고 서비스를 선택할 수 있는 멀티 스텝 폼
+   - [Multi-step-form](https://github.com/catmaker/Frontend-Challenge/tree/main/multi-step-form-main)
   
 
 ## 사용된 기술

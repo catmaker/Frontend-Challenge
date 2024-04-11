@@ -1,0 +1,77 @@
+.background {
+  background-color: hsl(228, 100%, 84%);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper {
+  width: 70%;
+  height: 70%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 13px;
+  display: flex;
+}
+.side {
+  background-image: url("/assets/images/bg-sidebar-desktop.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  flex: 1;
+}
+.main {
+  flex: 3;
+}
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 24px;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle_slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+
+.toggle_slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .toggle_slider {
+  background-color: #2196f3;
+}
+
+input:checked + .toggle_slider:before {
+  transform: translateX(34px);
+}
+
+.toggle_slider.round {
+  border-radius: 36px;
+}
+
+.toggle_slider.round:before {
+  border-radius: 50%;
+}

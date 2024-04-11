@@ -1,7 +1,6 @@
 # Multi-step form
 
 이 프로젝트는 HTML, CSS 및 순수 자바스크립트로 구축된 Multi-step form 컴포넌트 입니다.
-![Design preview for the Multi-step form coding challenge](./design/desktop-preview.jpg)
 
 ## 개요
 

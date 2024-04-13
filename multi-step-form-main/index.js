@@ -143,7 +143,7 @@ const mainContent = [
             (service) => `
           <div>
             <p>${service.name}</p>
-            <p>${service.price}/mo</p>
+            <p>$${service.price}</p>
           </div>
         `
           )
@@ -342,7 +342,13 @@ const updateContent = () => {
               .querySelector("span")
               .innerText.replace(`+$`, "")
           );
-          selectedServices.push({ name: serviceName, price: servicePrice });
+          if (selectedPlan.type === "yearly") {
+            const yearlyPrice = `${servicePrice}/yr`; // 수정된 코드
+            selectedServices.push({ name: serviceName, price: yearlyPrice });
+          } else {
+            const monthlyPrice = `${servicePrice}/mo`; // 수정된 코드
+            selectedServices.push({ name: serviceName, price: monthlyPrice });
+          }
         } else {
           const serviceName =
             checkbox.parentElement.querySelector("p").innerText;

@@ -51,7 +51,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #2196f3;
   transition: 0.4s;
 }
 
@@ -116,7 +116,7 @@ input:checked + .toggle_slider:before {
 .side_li > div:nth-child(2) > p:nth-child(1) {
   font-family: "Ubuntu-R";
   font-size: 0.6rem;
-  color: #adb5bd;
+  color: #cacbce;
   margin-bottom: 5px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
@@ -125,4 +125,121 @@ input:checked + .toggle_slider:before {
   font-size: 0.8rem;
   letter-spacing: 1px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+/* main section */
+.main {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main > div {
+  width: 70%;
+  height: 80%;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+}
+.main > div > h2 {
+  font-size: 1.7rem;
+  font-family: "Ubuntu-B";
+  color: #1c1866;
+}
+.main > div > p {
+  font-size: 0.9rem;
+  font-family: "Ubuntu-R";
+  color: #cacbce;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+/* first section */
+.personal_info_form {
+  display: flex;
+  flex-direction: column;
+  font-family: "Ubuntu-B";
+  color: #1c1866;
+  font-weight: 500;
+  font-size: 0.8rem;
+  gap: 15px;
+}
+.personal_info_form > input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #cacbce;
+  margin-bottom: 10px;
+  font-family: "Ubuntu-M";
+  font-weight = 700;
+}
+
+/* second section */
+.select_box {
+  display: flex;
+  justify-content: space-between;
+  gap:10px;
+  margin-bottom : 40px;
+}
+.select {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border : 1px solid #cacbce;
+  border-radius: 10px;
+  padding : 15px;
+  cursor:pointer;
+}
+.select:hover {
+  border : 1px solid #1c1866;
+}
+.select.active {
+  border : 1px solid #1c1866;
+  background-color: #F8F9FE;
+}
+
+.select_img {
+  width : 30px;
+  margin-bottom: 40px;
+}
+.select > p:nth-child(2) {
+  letter-spacing: -0.5px;
+  font-family: "Ubuntu-B";
+  color: #1c1866;
+  font-size: 0.95rem;
+}
+.select > p:nth-child(3) {
+  font-family: "Ubuntu-R";
+  color: #cacbce;
+  font-size: 0.8rem;
+}
+
+.toggle_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  background : #F8F9FE;
+  gap: 10px;
+  margin-bottom: 40px;
+  padding:10px;
+  border-radius: 10px;
+}
+
+.toggle_box > div {
+  width: 48%;
+  margin: 0 auto;
+  color: #1c1866;
+  font-size: 0.9rem;
+  font-family: "Ubuntu-B";
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.free {
+  color: #1c1866;
+  font-family: "Ubuntu-B";
+  font-size: 0.7rem;
 }

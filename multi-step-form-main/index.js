@@ -3,7 +3,6 @@ const side_ul = document.querySelector(".side_ul");
 const main = document.querySelector(".main");
 const back_btn = document.querySelector(".back_btn");
 const nextButton = document.querySelector(".next_btn");
-
 let currentStep = 0;
 const sideContent = [
   { step: "STEP 1", info: "YOUR INFO", Number: 1 },
@@ -41,6 +40,16 @@ function updateStyles() {
       side_num.style.border = "";
     }
   });
+  const monthlyText = document.querySelector(".month");
+  const yearlyText = document.querySelector(".year");
+
+  if (toggleState) {
+    monthlyText.style.color = "#cacbce";
+    yearlyText.style.color = "#1c1866";
+  } else {
+    monthlyText.style.color = "#1c1866";
+    yearlyText.style.color = "#cacbce";
+  }
 }
 
 const mainContent = [
@@ -48,12 +57,14 @@ const mainContent = [
     title: "Personal info",
     description: " Please provide your name, email address, and phone number.",
     content: `
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name">
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email">
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone">
+      <div class="personal_info_form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="e.g.Stephen King">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="e.g.stephenking@lorem.com">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="e.g.+1 234 567 890">
+      </div>
     `,
   },
   {
@@ -61,18 +72,20 @@ const mainContent = [
     description: "You have option of monthly or yearly billing",
     content: `
       <div class="select_box">
-        <div class="select"><p>Arcade</p><p>$9/mo</p></div>
-        <div class="select"><p>Advanced</p><p>$12/mo</p></div>
-        <div class="select"><p>Pro</p><p>$15/mo</p></div>
+        <div class="select"><img class="select_img" src="./assets/images/icon-arcade.svg" alt="Arcade"><p >Arcade</p><p class="price">$9/mo</p></div>
+        <div class="select"><img class="select_img" src="./assets/images/icon-advanced.svg" alt="Advanced"><p>Advanced</p><p class="price">$12/mo</p></div>
+        <div class="select"><img class="select_img" src="./assets/images/icon-pro.svg" alt="Pro"><p>Pro</p><p class="price">$15/mo</p></div>
       </div>
-      <div>
-        <span>Monthly</span>
-        <label class="toggle">
-          <input type="checkbox">
-          <span class="toggle_slider round">
-          </span>
-        </label>
-        <span>Yearly</span>
+      <div class="toggle_box">
+        <div>
+          <span class="month">Monthly</span>
+          <label class="toggle">
+            <input type="checkbox">
+           <span class="toggle_slider round">
+           </span>
+          </label>
+          <span class="year">Yearly</span>
+        </div>
       </div>  
     `,
   },
@@ -87,7 +100,7 @@ const mainContent = [
             <p>Online service</p>
             <p>Access to multiplayer games</p>
           </div>
-          <span>+$1/mo</span>
+          <span class="service_price">+$1/mo</span>
         </div>
         <div class="service_select">
           <input type="checkbox"/>
@@ -95,7 +108,7 @@ const mainContent = [
             <p>Larger storage</p>
             <p>Extra 1TB of cloud save</p>
           </div>
-          <span>+$2/mo</span>
+          <span class="service_price">+$2/mo</span>
         </div>
         <div class="service_select">
           <input type="checkbox"/>
@@ -103,7 +116,7 @@ const mainContent = [
             <p>Customizable Profile</p>
             <p>Custom theme on your profile</p>
           </div>
-          <span>+$2/mo</span>
+          <span class="service_price">+$2/mo</span>
         </div>           
       </div>
     `,
@@ -148,36 +161,183 @@ let selectedPlan = {
 };
 let selectedServices = [];
 
+let activePlanIndex = 0; // 추가된 코드
+let toggleState = false;
+let serviceCheckState = false;
 const updateContent = () => {
   const { title, description, content } = mainContent[currentStep];
   main.innerHTML = `
-    <h2>${title}</h2>
-    <p>${description}</p>
-    <div>${typeof content === "function" ? content() : content}</div>
+    <div>
+      <h2>${title}</h2>
+      <p>${description}</p>
+      <div>${typeof content === "function" ? content() : content}</div>
+    </div>
   `;
 
   if (currentStep === 1) {
     const plans = document.querySelectorAll(".select");
-    plans.forEach((plan) => {
+    const toggleSwitch = document.querySelector(
+      '.toggle input[type="checkbox"]'
+    );
+    const monthlyText = document.querySelector(".month");
+    const yearlyText = document.querySelector(".year");
+    const price = document.querySelectorAll(".price");
+    const monthlyPrice = [
+      parseFloat(price[0].innerText.replace(/[^0-9.-]+/g, "")),
+      parseFloat(price[1].innerText.replace(/[^0-9.-]+/g, "")),
+      parseFloat(price[2].innerText.replace(/[^0-9.-]+/g, "")),
+    ];
+    const yearlyPrice = [
+      monthlyPrice[0] * 10,
+      monthlyPrice[1] * 10,
+      monthlyPrice[2] * 10,
+    ];
+    const selectAll = document.querySelectorAll(".select");
+    toggleSwitch.checked = toggleState;
+    if (toggleSwitch.checked) {
+      price[0].innerText = `$${yearlyPrice[0]}/yr`;
+      price[1].innerText = `$${yearlyPrice[1]}/yr`;
+      price[2].innerText = `$${yearlyPrice[2]}/yr`;
+
+      const Free = document.createElement("span");
+      Free.classList.add("free");
+      Free.innerText = "2 months free";
+
+      selectAll.forEach((select) => {
+        select.appendChild(Free.cloneNode(true));
+      });
+      yearlyText.style.color = "#1c1866";
+      monthlyText.style.color = "#cacbce";
+    } else {
+      price[0].innerText = `$${monthlyPrice[0]}/mo`;
+      price[1].innerText = `$${monthlyPrice[1]}/mo`;
+      price[2].innerText = `$${monthlyPrice[2]}/mo`;
+
+      selectAll.forEach((select) => {
+        const Free = select.querySelector(".free");
+        if (Free) {
+          select.removeChild(Free);
+        }
+      });
+    }
+    toggleSwitch.addEventListener("change", () => {
+      toggleState = toggleSwitch.checked;
+      if (toggleState === true) {
+        const Free = document.createElement("span");
+        Free.classList.add("free");
+        Free.innerText = "2 months free";
+        monthlyText.style.color = "#cacbce";
+        yearlyText.style.color = "#1c1866";
+        selectAll.forEach((select) => {
+          select.appendChild(Free.cloneNode(true));
+        });
+
+        price[0].innerText = `$${yearlyPrice[0]}/yr`;
+        price[1].innerText = `$${yearlyPrice[1]}/yr`;
+        price[2].innerText = `$${yearlyPrice[2]}/yr`;
+
+        selectedPlan.price = `$${yearlyPrice[activePlanIndex]}/yr`;
+        selectedPlan.type = "yearly";
+      } else {
+        monthlyText.style.color = "#1c1866";
+        yearlyText.style.color = "#cacbce";
+
+        price[0].innerText = `$${monthlyPrice[0]}/mo`;
+        price[1].innerText = `$${monthlyPrice[1]}/mo`;
+        price[2].innerText = `$${monthlyPrice[2]}/mo`;
+
+        selectedPlan.price = `$${monthlyPrice[activePlanIndex]}/mo`;
+        selectedPlan.type = "monthly";
+
+        selectAll.forEach((select) => {
+          const Free = select.querySelector(".free");
+          if (Free) {
+            select.removeChild(Free);
+          }
+        });
+      }
+    });
+
+    monthlyText.style.color = "#1c1866";
+    yearlyText.style.color = "#cacbce";
+
+    plans.forEach((plan, index) => {
+      if (index === activePlanIndex) {
+        plan.classList.add("active");
+      }
+
       plan.addEventListener("click", () => {
-        selectedPlan = {
-          name: plan.querySelector("p").innerText,
-          price: plan.querySelector("p + p").innerText,
-        };
-        updateContent();
+        plans.forEach((plan) => {
+          plan.classList.remove("active");
+        });
+
+        plan.classList.add("active");
+
+        activePlanIndex = index;
+
+        const planPrice = plan.querySelector(".price").innerText;
+
+        if (!toggleSwitch.checked) {
+          selectedPlan = {
+            name: plan.querySelector("p").innerText,
+            price: planPrice,
+            type: "monthly",
+          };
+        } else {
+          selectedPlan = {
+            name: plan.querySelector("p").innerText,
+            price: planPrice,
+            type: "yearly",
+          };
+        }
       });
     });
   }
+  const monthlyPrices = {
+    "Online service": 1,
+    "Larger storage": 2,
+    "Customizable Profile": 2,
+  };
   if (currentStep === 2) {
+    if (selectedPlan.type === "monthly") {
+      selectedServices.forEach((service) => {
+        const monthlyPrice = monthlyPrices[service.name];
+
+        service.price = monthlyPrice;
+      });
+    } else {
+      selectedServices.forEach((service) => {
+        const monthlyPrice = monthlyPrices[service.name];
+
+        service.price = monthlyPrice * 10;
+      });
+    }
+
     const serviceSelects = document.querySelectorAll(
       '.service_select input[type="checkbox"]'
     );
+    const servicePrices = document.querySelectorAll(".service_price");
+    if (selectedPlan.type === "yearly") {
+      servicePrices.forEach((price) => {
+        const currentPrice = parseFloat(price.innerText.replace(`+$`, ""));
+        price.innerText = `+$${currentPrice * 10}/yr`;
+      });
+    }
     serviceSelects.forEach((checkbox) => {
+      if (selectedServices.length > 0) {
+        selectedServices.forEach((service) => {
+          const serviceName =
+            checkbox.parentElement.querySelector("p").innerText;
+          if (service.name === serviceName) {
+            checkbox.checked = true;
+          }
+        });
+      }
       checkbox.addEventListener("change", () => {
         if (checkbox.checked) {
           const serviceName =
             checkbox.parentElement.querySelector("p").innerText;
-          const servicePrice = parseFloat(
+          let servicePrice = parseFloat(
             checkbox.parentElement
               .querySelector("span")
               .innerText.replace(`+$`, "")
@@ -202,8 +362,6 @@ const updateContent = () => {
     back_btn.addEventListener("click", () => {
       if (currentStep > 0) {
         currentStep--;
-        selectedServices = [];
-        selectedPlan = { name: "Arcade", price: "$9/mo" };
         updateContent();
         updateStyles();
       }
@@ -225,6 +383,7 @@ const updateContent = () => {
 
   main.appendChild(nextButton);
 };
+
 const init = () => {
   updateContent();
   updateStyles();

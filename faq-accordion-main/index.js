@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const img = document.createElement("img");
     img.id = faq.imageId;
-    img.src = "/assets/images/icon-plus.svg";
+    img.src = "assets/images/icon-plus.svg";
 
     const p = document.createElement("p");
     p.className = faq.textClass;
@@ -59,11 +59,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     img.addEventListener("click", (e) => {
       if (e.target.src.match("icon-plus")) {
-        e.target.src = "/assets/images/icon-minus.svg";
+        e.target.src = "assets/images/icon-minus.svg";
         p.textContent = faq.answer;
         p.style.paddingTop = "10px";
       } else {
-        e.target.src = "/assets/images/icon-plus.svg";
+        e.target.src = "assets/images/icon-plus.svg";
         p.textContent = "";
         p.style.paddingTop = "";
       }

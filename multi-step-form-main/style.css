@@ -1,3 +1,16 @@
+@font-face {
+  font-family: "Ubuntu-B";
+  src: url("./assets/fonts/Ubuntu-Bold.ttf");
+}
+@font-face {
+  font-family: "Ubuntu-R";
+  src: url("/assets/fonts/Ubuntu-Regular.ttf");
+}
+@font-face {
+  font-family: "Ubuntu-M";
+  src: url("/assets/fonts/Ubuntu-Medium.ttf");
+}
+
 .background {
   background-color: hsl(228, 100%, 84%);
   width: 100vw;
@@ -14,14 +27,7 @@
   padding: 13px;
   display: flex;
 }
-.side {
-  background-image: url("/assets/images/bg-sidebar-desktop.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 10px;
-  flex: 1;
-}
+
 .main {
   flex: 3;
 }
@@ -74,4 +80,49 @@ input:checked + .toggle_slider:before {
 
 .toggle_slider.round:before {
   border-radius: 50%;
+}
+
+/* side section */
+.side {
+  background-image: url("assets/images/bg-sidebar-desktop.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  flex: 1;
+}
+
+.side_ul {
+  padding: 30px;
+  color: white;
+}
+.side_li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.side_li > div:nth-child(1) {
+  border: 1px solid white;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  font-family: "Ubuntu-M";
+}
+.side_li > div:nth-child(2) > p:nth-child(1) {
+  font-family: "Ubuntu-R";
+  font-size: 0.6rem;
+  color: #adb5bd;
+  margin-bottom: 5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.side_li > div:nth-child(2) > p:nth-child(2) {
+  font-family: "Ubuntu-B";
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }

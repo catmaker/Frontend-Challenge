@@ -6,18 +6,42 @@ const nextButton = document.querySelector(".next_btn");
 
 let currentStep = 0;
 const sideContent = [
-  { step: "STEP 1", info: "Your info" },
-  { step: "STEP 2", info: "Select plan" },
-  { step: "STEP 3", info: "Add-ons" },
-  { step: "STEP 4", info: "Summary" },
+  { step: "STEP 1", info: "YOUR INFO", Number: 1 },
+  { step: "STEP 2", info: "SELECT PLAN", Number: 2 },
+  { step: "STEP 3", info: "ADD-ONS", Number: 3 },
+  { step: "STEP 4", info: "SUMMARY", Number: 4 },
 ];
 
-sideContent.forEach(({ step, info }) => {
-  const li = document.createElement("li");
-  li.innerHTML = `<p>${step}</p><p>${info}</p>`;
-  li.classList.add("side_li");
-  side_ul.appendChild(li);
-});
+function createListItems() {
+  sideContent.forEach(({ step, info, Number }) => {
+    const li = document.createElement("li");
+    li.innerHTML = `<div class="side_num">${Number}</div>
+    <div><p>${step}</p><p>${info}</p></div>`;
+    li.classList.add("side_li");
+    side_ul.appendChild(li);
+  });
+}
+
+createListItems();
+
+const side_nums = document.querySelectorAll(".side_num");
+const side_num0 = side_nums[0];
+const side_num1 = side_nums[1];
+const side_num2 = side_nums[2];
+const side_num3 = side_nums[3];
+
+function updateStyles() {
+  side_nums.forEach((side_num, index) => {
+    if (currentStep === index) {
+      side_num.style.backgroundColor = "skyblue";
+      side_num.style.color = "black";
+    } else {
+      side_num.style.backgroundColor = "";
+      side_num.style.color = "";
+      side_num.style.border = "";
+    }
+  });
+}
 
 const mainContent = [
   {
@@ -181,6 +205,7 @@ const updateContent = () => {
         selectedServices = [];
         selectedPlan = { name: "Arcade", price: "$9/mo" };
         updateContent();
+        updateStyles();
       }
     });
 
@@ -194,6 +219,7 @@ const updateContent = () => {
     if (currentStep < 3) {
       currentStep++;
       updateContent();
+      updateStyles();
     }
   });
 
@@ -201,6 +227,7 @@ const updateContent = () => {
 };
 const init = () => {
   updateContent();
+  updateStyles();
 };
 
 init();

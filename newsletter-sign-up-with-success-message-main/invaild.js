@@ -14,7 +14,7 @@ topics.forEach((topic) => {
   div.className = "topic";
 
   const img = document.createElement("img");
-  img.src = "/assets/images/icon-success.svg";
+  img.src = "assets/images/icon-success.svg";
   img.alt = "success";
 
   div.appendChild(img);

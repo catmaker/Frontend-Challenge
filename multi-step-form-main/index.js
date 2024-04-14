@@ -125,11 +125,11 @@ const mainContent = [
     title: "Finishing up",
     description: "Double-check everthing looks OK before confirming.",
     content: () => `
-    <div>
-      <div>
+    <div class="payment_form">
+      <div class="service_plan_form">
         <div>
           <p>
-            ${selectedPlan.name}
+            ${selectedPlan.name} (${selectedPlan.type})
           </p>
           <p>
             Change
@@ -137,7 +137,7 @@ const mainContent = [
         </div>
         <p>${selectedPlan.price}</p>
       </div>
-      <div>
+      <div class="selected_services_form">
         ${selectedServices
           .map(
             (service) => `
@@ -148,9 +148,18 @@ const mainContent = [
         `
           )
           .join("")}</div>
-        <div></div>
+
       </div>
+      
     </div>
+    <div class="total_form">
+    Total <span>${selectedServices.reduce((acc, service) => {
+      const price = parseFloat(service.price.replace(/[^0-9.-]+/g, ""));
+      return acc + price;
+    }, parseFloat(selectedPlan.price.replace(/[^0-9.-]+/g, "")))}/${
+      selectedPlan.type
+    }</span>
+  </div>
   `,
   },
 ];
@@ -158,6 +167,7 @@ const mainContent = [
 let selectedPlan = {
   name: "Arcade",
   price: "$9/mo",
+  type: "Monthly",
 };
 let selectedServices = [];
 
@@ -237,7 +247,7 @@ const updateContent = () => {
         price[2].innerText = `$${yearlyPrice[2]}/yr`;
 
         selectedPlan.price = `$${yearlyPrice[activePlanIndex]}/yr`;
-        selectedPlan.type = "yearly";
+        selectedPlan.type = "Yearly";
       } else {
         monthlyText.style.color = "#1c1866";
         yearlyText.style.color = "#cacbce";
@@ -247,7 +257,7 @@ const updateContent = () => {
         price[2].innerText = `$${monthlyPrice[2]}/mo`;
 
         selectedPlan.price = `$${monthlyPrice[activePlanIndex]}/mo`;
-        selectedPlan.type = "monthly";
+        selectedPlan.type = "Monthly";
 
         selectAll.forEach((select) => {
           const Free = select.querySelector(".free");
@@ -281,60 +291,45 @@ const updateContent = () => {
           selectedPlan = {
             name: plan.querySelector("p").innerText,
             price: planPrice,
-            type: "monthly",
+            type: "Monthly",
           };
         } else {
           selectedPlan = {
             name: plan.querySelector("p").innerText,
             price: planPrice,
-            type: "yearly",
+            type: "Yearly",
           };
         }
       });
     });
   }
-  const monthlyPrices = {
-    "Online service": 1,
-    "Larger storage": 2,
-    "Customizable Profile": 2,
-  };
   if (currentStep === 2) {
-    if (selectedPlan.type === "monthly") {
-      selectedServices.forEach((service) => {
-        const monthlyPrice = monthlyPrices[service.name];
-
-        service.price = monthlyPrice;
-      });
-    } else {
-      selectedServices.forEach((service) => {
-        const monthlyPrice = monthlyPrices[service.name];
-
-        service.price = monthlyPrice * 10;
-      });
-    }
-
     const serviceSelects = document.querySelectorAll(
       '.service_select input[type="checkbox"]'
     );
     const servicePrices = document.querySelectorAll(".service_price");
-    if (selectedPlan.type === "yearly") {
+    if (selectedPlan.type === "Yearly") {
       servicePrices.forEach((price) => {
         const currentPrice = parseFloat(price.innerText.replace(`+$`, ""));
         price.innerText = `+$${currentPrice * 10}/yr`;
       });
     }
     serviceSelects.forEach((checkbox) => {
+      const service_checked_div = checkbox.parentElement;
       if (selectedServices.length > 0) {
         selectedServices.forEach((service) => {
           const serviceName =
             checkbox.parentElement.querySelector("p").innerText;
           if (service.name === serviceName) {
             checkbox.checked = true;
+            service_checked_div.classList.add("active");
           }
         });
       }
+
       checkbox.addEventListener("change", () => {
         if (checkbox.checked) {
+          service_checked_div.classList.add("active");
           const serviceName =
             checkbox.parentElement.querySelector("p").innerText;
           let servicePrice = parseFloat(
@@ -342,14 +337,23 @@ const updateContent = () => {
               .querySelector("span")
               .innerText.replace(`+$`, "")
           );
-          if (selectedPlan.type === "yearly") {
+          if (selectedPlan.type === "Yearly") {
             const yearlyPrice = `${servicePrice}/yr`; // 수정된 코드
-            selectedServices.push({ name: serviceName, price: yearlyPrice });
+            selectedServices.push({
+              name: serviceName,
+              price: yearlyPrice,
+              type: "Yearly",
+            });
           } else {
             const monthlyPrice = `${servicePrice}/mo`; // 수정된 코드
-            selectedServices.push({ name: serviceName, price: monthlyPrice });
+            selectedServices.push({
+              name: serviceName,
+              price: monthlyPrice,
+              type: "Monthly",
+            });
           }
         } else {
+          service_checked_div.classList.remove("active");
           const serviceName =
             checkbox.parentElement.querySelector("p").innerText;
           const index = selectedServices.findIndex(
@@ -364,6 +368,7 @@ const updateContent = () => {
   }
   if (currentStep > 0) {
     const back_btn = document.createElement("button");
+    back_btn.classList.add("back_btn");
     back_btn.innerText = "Go Back";
     back_btn.addEventListener("click", () => {
       if (currentStep > 0) {
@@ -377,7 +382,9 @@ const updateContent = () => {
   }
 
   const nextButton = document.createElement("button");
+  nextButton.classList.add("next_btn");
   nextButton.innerText = "Next Step";
+
   nextButton.addEventListener("click", (e) => {
     e.preventDefault();
     if (currentStep < 3) {

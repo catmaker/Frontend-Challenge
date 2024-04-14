@@ -30,6 +30,7 @@
 
 .main {
   flex: 3;
+  position: relative;
 }
 .toggle {
   position: relative;
@@ -90,6 +91,7 @@ input:checked + .toggle_slider:before {
   background-size: cover;
   border-radius: 10px;
   flex: 1;
+  min-width: 210px
 }
 
 .side_ul {
@@ -116,7 +118,7 @@ input:checked + .toggle_slider:before {
 .side_li > div:nth-child(2) > p:nth-child(1) {
   font-family: "Ubuntu-R";
   font-size: 0.6rem;
-  color: #cacbce;
+  color: #adb5be;
   margin-bottom: 5px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
@@ -150,7 +152,7 @@ input:checked + .toggle_slider:before {
 .main > div > p {
   font-size: 0.9rem;
   font-family: "Ubuntu-R";
-  color: #cacbce;
+  color: #adb5be;
   margin-top: 10px;
   margin-bottom: 40px;
 }
@@ -168,7 +170,7 @@ input:checked + .toggle_slider:before {
 .personal_info_form > input {
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #cacbce;
+  border: 1px solid #adb5be;
   margin-bottom: 10px;
   font-family: "Ubuntu-M";
   font-weight = 700;
@@ -186,7 +188,7 @@ input:checked + .toggle_slider:before {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border : 1px solid #cacbce;
+  border : 1px solid #adb5be;
   border-radius: 10px;
   padding : 15px;
   cursor:pointer;
@@ -211,7 +213,7 @@ input:checked + .toggle_slider:before {
 }
 .select > p:nth-child(3) {
   font-family: "Ubuntu-R";
-  color: #cacbce;
+  color: #adb5be;
   font-size: 0.8rem;
 }
 
@@ -226,9 +228,12 @@ input:checked + .toggle_slider:before {
   padding:10px;
   border-radius: 10px;
 }
-
+.toggle_slider {
+  min-width: 50px;
+}
 .toggle_box > div {
   width: 48%;
+  min-width: 48%;
   margin: 0 auto;
   color: #1c1866;
   font-size: 0.9rem;
@@ -242,4 +247,235 @@ input:checked + .toggle_slider:before {
   color: #1c1866;
   font-family: "Ubuntu-B";
   font-size: 0.7rem;
+}
+
+/* third section */
+.service_select_box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+}
+.service_select {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  width:100%;
+  padding: 10px;
+  padding-top:20px;
+  padding-bottom:20px;
+  color: #1c1866;
+  font-family: "Ubuntu-M";
+  font-weight: 700;
+  font-size: 0.8rem;
+  border: 1px solid #1c1866;
+  border-radius: 10px;
+}
+.service_select > div > p:nth-child(2) {
+  margin-top: 5px;
+  color: #adb5be;
+  font-family: "Ubuntu-R";
+  font-weight: 400;
+}
+.service_select span {
+  margin-left: auto;
+  font-family: "Ubuntu-B";
+  font-weight: 400;
+}
+
+.service_select.active {
+  border : 1px solid #1c1866;
+  background-color: #F8F9FE;
+}
+
+/* fourth section */
+.payment_form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-radius: 10px;
+  background-color: #F8F9FE;
+}
+.service_plan_form {
+  display: flex;
+  padding: 20px;
+  border-bottom: 1px solid #adb5be;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  color: #1c1866;
+  font-family: "Ubuntu-M";
+  font-weight: 400;
+}
+.service_plan_form > p {
+  font-family: "Ubuntu-B";
+}
+.service_plan_form > div > p:nth-child(2) {
+  color: #adb5be;
+  text-decoration: underline;  
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+.selected_services_form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 15px;
+  justify-content: space-between;
+  color: #1c1866;
+  font-family: "Ubuntu-M";
+  font-weight: 400;
+}
+.selected_services_form > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+.selected_services_form > div > p:nth-child(1) {
+  color: #adb5be;
+  font-size: 0.8rem;
+}
+.total_form {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  color: #1c1866;
+  font-family: "Ubuntu-M";
+  font-weight: 400;
+}
+
+button {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top : 13px;
+  padding-bottom : 13px;
+  border-radius: 10px;
+}
+.next_btn {
+  position: absolute;
+  top: 95%;
+  right: 15%;
+  transform: translateY(-50%);
+  background-color: #1c1866;
+  color: white;
+  border: none;
+}
+.back_btn {
+  position: absolute;
+  top: 95%;
+  left: 15%;
+  transform: translateY(-50%);
+  background-color: #adb5be;
+  color: white;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  /* side section */
+  .side_li div:nth-child(2) {
+    display: none;
+  }
+  .wrapper {
+    flex-direction: column;
+  }
+  .side_ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .side {
+    background-image : none;
+    flex: none;
+  }
+  .side_ul {
+    padding: 0;
+  }
+  .side_li {
+    margin-bottom: 0;
+    padding: 20px;
+  }
+  .side_num {
+    margin-right: 0 !important;
+    border: 1px solid #1c1866 !important;
+    color: black !important;
+  }
+  .background {
+    background-image: url("assets/images/bg-sidebar-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  /* main section */
+  .main {
+    width: 100%;
+  }
+  .main > div {
+    width: 90%;
+    margin-top: 10px;
+  }
+  /* toggle section */
+  .toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 24px;
+  }
+  
+  .toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .toggle_slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2196f3;
+    transition: 0.4s;
+  }
+  
+  .toggle_slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+  }
+  
+  input:checked + .toggle_slider {
+    background-color: #2196f3;
+  }
+  
+  input:checked + .toggle_slider:before {
+    transform: translateX(25px);
+  }
+  
+  .toggle_slider.round {
+    border-radius: 36px;
+  }
+  
+  .toggle_slider.round:before {
+    border-radius: 50%;
+  }
+  
+  /* third section */
+  .service_select {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .service_select input {
+    margin-left: 10px;
+  }
+  .service_price {
+    margin-right: 10px;
+  }
 }

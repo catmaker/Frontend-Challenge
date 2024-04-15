@@ -374,14 +374,14 @@ const updateContent = () => {
               .innerText.replace(`+$`, "")
           );
           if (selectedPlan.type === "Yearly") {
-            const yearlyPrice = `${servicePrice}/yr`; // 수정된 코드
+            const yearlyPrice = `${servicePrice}/yr`;
             selectedServices.push({
               name: serviceName,
               price: yearlyPrice,
               type: "Yearly",
             });
           } else {
-            const monthlyPrice = `${servicePrice}/mo`; // 수정된 코드
+            const monthlyPrice = `${servicePrice}/mo`;
             selectedServices.push({
               name: serviceName,
               price: monthlyPrice,

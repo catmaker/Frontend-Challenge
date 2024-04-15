@@ -15,6 +15,7 @@
   background-color: hsl(228, 100%, 84%);
   width: 100vw;
   height: 100vh;
+  min-height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,6 +23,7 @@
 .wrapper {
   width: 70%;
   height: 70%;
+  min-height: 500px;
   background-color: white;
   border-radius: 10px;
   padding: 13px;
@@ -505,4 +507,23 @@ button {
     padding-top : 10px;
     padding-bottom : 10px;
   }
+  .next_btn {
+    position: absolute;
+    top: 95%;
+    right: 15%;
+    transform: translateY(-50%);
+    background-color: #1c1866;
+    color: white;
+    border: none;
+  }
+  .back_btn {
+    position: absolute;
+    top: 95%;
+    left: 15%;
+    transform: translateY(-50%);
+    background-color: #adb5be;
+    color: white;
+    border: none;
+  }
+  
 }

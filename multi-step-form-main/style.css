@@ -185,6 +185,7 @@ input:checked + .toggle_slider:before {
 }
 .select {
   width: 48%;
+  min-width: 24%;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -232,7 +233,7 @@ input:checked + .toggle_slider:before {
   min-width: 50px;
 }
 .toggle_box > div {
-  width: 48%;
+  width: 80%;
   min-width: 48%;
   margin: 0 auto;
   color: #1c1866;
@@ -240,6 +241,7 @@ input:checked + .toggle_slider:before {
   font-family: "Ubuntu-B";
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
 }
 
@@ -394,7 +396,7 @@ button {
   }
   .side_li {
     margin-bottom: 0;
-    padding: 20px;
+    padding: clamp(10px, 5%, 20px);
   }
   .side_num {
     margin-right: 0 !important;
@@ -414,6 +416,24 @@ button {
   .main > div {
     width: 90%;
     margin-top: 10px;
+  }
+  /* second section */
+  div.select {
+    min-width: 12%;
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+  .select > img {
+    margin-bottom: 20px;
+  }
+  .select > p:nth-child(2) {
+    font-size: 0.8rem;
+  }
+  .select > p:nth-child(3) {
+    font-size: 0.7rem;
   }
   /* toggle section */
   .toggle {
@@ -477,5 +497,12 @@ button {
   }
   .service_price {
     margin-right: 10px;
+  }
+  /* button */
+  button {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top : 10px;
+    padding-bottom : 10px;
   }
 }

@@ -1,8 +1,9 @@
+import { validateEmail, validatePhoneNumber } from "./validation";
+
 const side = document.querySelector(".side");
 const side_ul = document.querySelector(".side_ul");
 const main = document.querySelector(".main");
-const back_btn = document.querySelector(".back_btn");
-const nextButton = document.querySelector(".next_btn");
+
 let currentStep = 0;
 const sideContent = [
   { step: "STEP 1", info: "YOUR INFO", Number: 1 },
@@ -24,10 +25,6 @@ function createListItems() {
 createListItems();
 
 const side_nums = document.querySelectorAll(".side_num");
-const side_num0 = side_nums[0];
-const side_num1 = side_nums[1];
-const side_num2 = side_nums[2];
-const side_num3 = side_nums[3];
 
 function updateStyles() {
   side_nums.forEach((side_num, index) => {
@@ -184,7 +181,44 @@ const updateContent = () => {
     </div>
   `;
 
+  if (currentStep === 0) {
+    const name = document.querySelector("#name");
+    const email = document.querySelector("#email");
+    const phone = document.querySelector("#phone");
+    const addBlurListener = (input, validator) => {
+      input.addEventListener("blur", () => {
+        if (!validator(input.value)) {
+          input.style.border = "1px solid red";
+        } else {
+          input.style.border = "";
+        }
+        checkValidation();
+      });
+    };
+    const checkValidation = () => {
+      if (
+        name.value.length > 3 &&
+        validateEmail(email.value) &&
+        validatePhoneNumber(phone.value)
+      ) {
+        nextButton.disabled = false;
+        nextButton.style.backgroundColor = "#1c1866";
+      } else {
+        nextButton.disabled = true;
+        nextButton.style.backgroundColor = "#cacbce";
+      }
+    };
+
+    addBlurListener(name, (value) => value.length > 3);
+    addBlurListener(email, validateEmail);
+    addBlurListener(phone, validatePhoneNumber);
+  }
+  nextButton.disabled = true;
+  nextButton.style.backgroundColor = "#cacbce";
+
   if (currentStep === 1) {
+    nextButton.disabled = false;
+    nextButton.style.backgroundColor = "#1c1866";
     const plans = document.querySelectorAll(".select");
     const toggleSwitch = document.querySelector(
       '.toggle input[type="checkbox"]'
@@ -304,6 +338,8 @@ const updateContent = () => {
     });
   }
   if (currentStep === 2) {
+    nextButton.disabled = false;
+    nextButton.style.backgroundColor = "#1c1866";
     const serviceSelects = document.querySelectorAll(
       '.service_select input[type="checkbox"]'
     );
@@ -366,6 +402,10 @@ const updateContent = () => {
       });
     });
   }
+  if (currentStep === 3) {
+    nextButton.disabled = false;
+    nextButton.style.backgroundColor = "#1c1866";
+  }
   if (currentStep > 0) {
     const back_btn = document.createElement("button");
     back_btn.classList.add("back_btn");
@@ -380,22 +420,22 @@ const updateContent = () => {
 
     main.appendChild(back_btn);
   }
-
-  const nextButton = document.createElement("button");
-  nextButton.classList.add("next_btn");
-  nextButton.innerText = "Next Step";
-
-  nextButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (currentStep < 3) {
-      currentStep++;
-      updateContent();
-      updateStyles();
-    }
-  });
-
   main.appendChild(nextButton);
 };
+
+const nextButton = document.createElement("button");
+nextButton.classList.add("next_btn");
+nextButton.innerText = "Next Step";
+nextButton.disabled = true;
+
+nextButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (currentStep < 3) {
+    currentStep++;
+    updateContent();
+    updateStyles();
+  }
+});
 
 const init = () => {
   updateContent();

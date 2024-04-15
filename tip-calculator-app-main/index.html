@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <title>Tip calculator app</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="logo">
+        <img src="./images/logo.svg" alt="" />
+      </header>
+      <section class="main">
+        <div class="bill-info">
+          <div>
+            <label for="bill">Bill</label>
+            <input type="text" id="bill" />
+          </div>
+          <div>
+            <h2>Select Tip %</h2>
+            <div class="button-box"></div>
+          </div>
+          <div>
+            <label for="people">Number of People</label>
+            <input type="text" id="people" />
+          </div>
+        </div>
+        <div class="payment-info">
+          <div class="flex">
+            <div class="amount">
+              <p>Tip Amount</p>
+              <p>/ person</p>
+            </div>
+            <div class="tip-result">$0.00</div>
+          </div>
+          <div class="flex">
+            <div class="total">
+              <p>Total</p>
+              <p>/ person</p>
+            </div>
+            <div class="total-result">$0.00</div>
+          </div>
+
+          <button class="reset-btn">Reset</button>
+        </div>
+      </section>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

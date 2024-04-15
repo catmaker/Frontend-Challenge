@@ -1,0 +1,190 @@
+body {
+  background-color: hsl(185, 41%, 84%);
+  font-family: "Space Mono", monospace;
+}
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  min-height: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main {
+  width: 70%;
+  height: 40%;
+  min-height: 300px;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  padding: 25px;
+  margin-top: 40px;
+  gap: 20px;
+}
+/* bill-info section  */
+div.bill-info {
+  flex: 1;
+}
+div.bill-info > div {
+  display: flex;
+  flex-direction: column;
+}
+#bill {
+  background-image: url("./images/icon-dollar.svg");
+  background-repeat: no-repeat;
+  background-position: 10px 50%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f3f8fb;
+  border: none;
+  margin-top: 10px;
+  text-align: right;
+  font-family: "Space Mono", monospace;
+  color: hsl(183, 100%, 15%);
+  font-weight: 700;
+}
+div.button-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+div.button-box button {
+  flex-basis: calc(33.33% - 5px);
+  margin-bottom: 10px;
+  color: white;
+  background-color: hsl(183, 100%, 15%);
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Space Mono", monospace;
+}
+div.button-box button:hover {
+  background-color: hsl(172, 67%, 45%);
+  transition: 0.3s;
+}
+label {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: hsl(186, 14%, 43%);
+  font-weight: 700;
+}
+h2 {
+  margin-top: 30px;
+  font-size: 0.8rem;
+  color: hsl(186, 14%, 43%);
+  font-weight: 700;
+}
+#people {
+  background-image: url("./images/icon-person.svg");
+  background-repeat: no-repeat;
+  background-position: 10px 50%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f3f8fb;
+  border: none;
+  margin-top: 10px;
+  text-align: right;
+  color: hsl(183, 100%, 15%);
+  font-weight: 700;
+}
+/* payment-info section  */
+div.payment-info {
+  flex: 1;
+  background-color: hsl(183, 100%, 15%);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+div.payment-info > div {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  align-items: center;
+}
+
+div.amount > p:nth-child(1) {
+  color: white;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+div.amount > p:nth-child(2) {
+  color: hsl(186, 14%, 43%);
+  font-size: 0.7rem;
+}
+div.total > p:nth-child(1) {
+  color: white;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+div.total > p:nth-child(2) {
+  color: hsl(186, 14%, 43%);
+  font-size: 0.7rem;
+}
+
+button.reset-btn {
+  background-color: hsl(172, 67%, 45%);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  margin-top: 110px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tip-result {
+  font-size: 1.5rem;
+  color: hsl(172, 67%, 45%);
+}
+.total-result {
+  font-size: 1.5rem;
+  color: hsl(172, 67%, 45%);
+}
+
+.selected {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+}
+
+@media (max-width: 700px) {
+  .tip-result {
+    font-size: 1rem;
+  }
+  .total-result {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 580px) {
+  .main {
+    flex-direction: column;
+    padding: 15px;
+    height: 100vh;
+    min-height: 500px;
+  }
+  header.logo {
+    padding-top: 50px;
+  }
+  div.bill-info {
+    height: 100%;
+  }
+  div.payment-info {
+  }
+  div.button-box button {
+    flex-basis: calc(50% - 5px);
+  }
+  div.payment-info > div {
+  }
+  button.reset-btn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}

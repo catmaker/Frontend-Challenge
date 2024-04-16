@@ -50,6 +50,10 @@ div.button-box {
   justify-content: space-between;
   margin-top: 10px;
 }
+.tip-button.active {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+}
 div.button-box button {
   flex-basis: calc(33.33% - 5px);
   margin-bottom: 10px;

@@ -13,13 +13,16 @@ const createButton = (inner, className) => {
 const addButtonsToBox = () => {
   const tips = ["5%", "10%", "15%", "25%", "50%"];
   const customTip = createButton("Custom", "custom-button");
+  const buttons = [];
   tips.forEach((tip) => {
     const button = createButton(tip, "tip-button");
+    buttons.push(button);
     button.addEventListener("click", (e) => {
+      buttons.forEach((button) => button.classList.remove("active"));
+      button.classList.add("active");
       currentTip = e.target.innerHTML;
       calculateTip(currentTip);
     });
-
     buttonBox.appendChild(button);
   });
   customTip.addEventListener("click", () => {
@@ -29,6 +32,7 @@ const addButtonsToBox = () => {
   });
   buttonBox.appendChild(customTip);
 };
+
 bill.addEventListener("input", () => {
   calculateTip(currentTip);
 });

@@ -1,4 +1,4 @@
-#Tip calculator app
+# Tip calculator app
 
 이 프로젝트는 HTML, CSS 및 순수 자바스크립트로 구축된 Multi-step form 컴포넌트 입니다.
 
@@ -27,5 +27,12 @@ Tip Calculator 앱은 음식 가격과 팁 비율을 입력하고 인원 수를 
 
 ## 결과
 **Desktop** </br>
-
+![1](https://github.com/catmaker/Frontend-Challenge/assets/114233139/8e93219b-4fe7-4987-8ee3-03b969c355dd) </br>
+![2](https://github.com/catmaker/Frontend-Challenge/assets/114233139/7c32d3a5-55f1-4c97-8c79-f01038cb8c05)
+</br>
+![문자열 들어왔을때](https://github.com/catmaker/Frontend-Challenge/assets/114233139/09e28c80-f680-49fd-8009-c46a6452e118)
+</br>
+![문자열 리턴](https://github.com/catmaker/Frontend-Challenge/assets/114233139/88b90a19-d2fc-4dea-a65a-5e6442ab5133)
+</br>
 **Mobile** </br>
+![mobile](https://github.com/catmaker/Frontend-Challenge/assets/114233139/4f27bfb6-e988-4123-93bd-f1650e4ec3e5)

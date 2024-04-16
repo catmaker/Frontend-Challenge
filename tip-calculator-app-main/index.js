@@ -31,6 +31,10 @@ const addButtonsToBox = () => {
     customTip.classList.add("active");
 
     currentTip = prompt("Enter custom tip amount");
+    if (!currentTip || currentTip === "" || isNaN(Number(currentTip))) {
+      alert("Please enter a valid number");
+      return;
+    }
     customTip.innerHTML = `${currentTip}%`;
     calculateTip(currentTip);
   });

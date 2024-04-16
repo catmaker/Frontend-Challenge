@@ -36,4 +36,5 @@ Tip Calculator 앱은 음식 가격과 팁 비율을 입력하고 인원 수를 
 
 </br>
 **Mobile** </br>
+
 ![mobile](https://github.com/catmaker/Frontend-Challenge/assets/114233139/4f27bfb6-e988-4123-93bd-f1650e4ec3e5)

@@ -25,7 +25,11 @@ const addButtonsToBox = () => {
     });
     buttonBox.appendChild(button);
   });
-  customTip.addEventListener("click", () => {
+  buttons.push(customTip);
+  customTip.addEventListener("click", (e) => {
+    buttons.forEach((button) => button.classList.remove("active"));
+    customTip.classList.add("active");
+
     currentTip = prompt("Enter custom tip amount");
     customTip.innerHTML = `${currentTip}%`;
     calculateTip(currentTip);

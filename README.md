@@ -12,6 +12,8 @@
    - [Subscribe-form](https://github.com/catmaker/Frontend-Challenge/tree/main/newsletter-sign-up-with-success-message-main)
 3. **Multi-step-form**: 사용자가 여러 단계를 거쳐 정보를 입력하고 서비스를 선택할 수 있는 멀티 스텝 폼
    - [Multi-step-form](https://github.com/catmaker/Frontend-Challenge/tree/main/multi-step-form-main)
+4. **Tip-calculator** : 인원 수에 따라 팁을 계산해주는 계산기
+   - [Tip-calculator](https://github.com/catmaker/Frontend-Challenge/tree/main/tip-calculator-app-main)
   
 
 ## 사용된 기술
